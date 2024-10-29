@@ -3,7 +3,7 @@ import "@testing-library/jest-dom";
 import { render, screen } from "@testing-library/react";
 
 describe("TableHeader", () => {
-  it("should have a column forID", () => {
+  it("should have a column for ID", () => {
     render(<TableHeader />);
     expect(screen.getByText("ID")).toBeInTheDocument();
   });
