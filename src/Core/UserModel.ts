@@ -3,8 +3,8 @@ export default class User {
   name: string;
   age: number;
 
-  constructor(name: string, age: number) {
-    this.id = "";
+  constructor(name: string, age: number, id: string = "") {
+    this.id = id;
     this.name = name;
     this.age = age;
   }
