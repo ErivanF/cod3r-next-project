@@ -9,8 +9,10 @@ describe("Input", () => {
   });
   it("should update the state correctly", () => {
     const mockHandleChange = jest.fn();
-    render(<Input title="Test Input" handleChange={mockOnChange} />);
-    const input = screen.getByLabelText("Test Input");
+    render(
+      <Input title="Test Input" id="test" handleChange={mockHandleChange} />
+    );
+    const input = screen.getByTestId("test");
     fireEvent.change(input, {
       target: { value: "InputText" },
     });
