@@ -2,7 +2,7 @@ import { fireEvent, render, screen } from "@testing-library/react";
 import Input from "..";
 
 describe("Input", () => {
-  it("should displat the input title", () => {
+  it("should display the input title", () => {
     render(<Input title="Title Test" />);
     const input = screen.getByText("Title Test");
     expect(input).toBeInTheDocument();
