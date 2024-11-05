@@ -9,8 +9,9 @@ export default function Home() {
         handleClick={() => {
           console.log("Bottão pressionado");
         }}
+        gray
       >
-        Botão de teste/
+        Botão de teste
       </Button>
     </div>
   );
