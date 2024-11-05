@@ -5,5 +5,12 @@ interface props {
   handleClick: () => void;
 }
 export default function Button({ children, handleClick }: props) {
-  return <button onClick={() => handleClick()}>{children}</button>;
+  return (
+    <button
+      className="p-2 bg-violet-900 text-gray-100 rounded"
+      onClick={() => handleClick()}
+    >
+      {children}
+    </button>
+  );
 }
