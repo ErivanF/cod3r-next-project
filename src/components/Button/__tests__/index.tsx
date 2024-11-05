@@ -10,7 +10,7 @@ describe("Button", () => {
   });
   it("should run the onClick function", () => {
     const clickTest = jest.fn();
-    render(<Button onClick={clickTest}>Testing button</Button>);
+    render(<Button handleClick={clickTest}>Testing button</Button>);
     const button = screen.getByText("Testing button");
     fireEvent.click(button);
     expect(clickTest).toHaveBeenCalled();
