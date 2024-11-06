@@ -3,7 +3,7 @@ import TableLine from "..";
 
 import User from "@/Core/UserModel";
 
-const testUser = new User("testUserName", 9876);
+const testUser = new User("testUserName", 9876, "userID");
 
 describe("TableLine", () => {
   it("should display the user ID", () => {
@@ -20,10 +20,10 @@ describe("TableLine", () => {
   });
   it("should have an edit button", () => {
     render(<TableLine user={testUser} />);
-    expect(screen.getAllByTestId("editButton")).toBeInTheDocument();
+    expect(screen.getByTestId("editButton")).toBeInTheDocument();
   });
   it("should have a delete button", () => {
     render(<TableLine user={testUser} />);
-    expect(screen.getAllByTestId("deleteButton")).toBeInTheDocument();
+    expect(screen.getByTestId("deleteButton")).toBeInTheDocument();
   });
 });
