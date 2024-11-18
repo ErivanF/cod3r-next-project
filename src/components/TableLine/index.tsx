@@ -1,10 +1,13 @@
 import User from "@/Core/UserModel";
 import Button from "../Button";
+import { useRouter } from "next/navigation";
 
 interface props {
   user: User;
+  removeUser: (id: string) => void;
 }
-export default function TableLine({ user }: props) {
+export default function TableLine({ user, removeUser }: props) {
+  const router = useRouter();
   return (
     <tbody>
       <tr data-testid="userCard" className="flex justify-stretch w-full">
@@ -18,7 +21,12 @@ export default function TableLine({ user }: props) {
           {user.age}
         </td>
         <td className="border-x-white basis-1 grow text-center overflow-hidden p-1 flex justify-evenly">
-          <Button testId="editButton" handleClick={() => {}}>
+          <Button
+            testId="editButton"
+            handleClick={() => {
+              router.push(`user/${user.id}`);
+            }}
+          >
             <svg
               xmlns="http://www.w3.org/2000/svg"
               fill="none"
@@ -34,7 +42,12 @@ export default function TableLine({ user }: props) {
               />
             </svg>
           </Button>
-          <Button testId="deleteButton" handleClick={() => {}}>
+          <Button
+            testId="deleteButton"
+            handleClick={() => {
+              removeUser(user?.id ?? "");
+            }}
+          >
             <svg
               xmlns="http://www.w3.org/2000/svg"
               fill="none"
