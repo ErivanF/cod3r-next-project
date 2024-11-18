@@ -20,7 +20,7 @@ export default function UserPage() {
     <div className="flex flex-col items-center">
       <div className="text-lg text-center m-4">User ID: {user.id}</div>
       <Input
-        id="userName"
+        id="NameInput"
         title="Nome"
         value={user.name}
         handleChange={(newName) => {
@@ -28,7 +28,7 @@ export default function UserPage() {
         }}
       />
       <Input
-        id="userAge"
+        id="AgeInput"
         title="Idade"
         type="number"
         value={String(user.age)}
@@ -44,7 +44,7 @@ export default function UserPage() {
             });
           }}
         >
-          Salvar
+          Atualizar
         </Button>
         <Button
           gray

@@ -14,7 +14,7 @@ export default function FormPage() {
   return (
     <div className="flex flex-col items-center">
       <Input
-        id="name"
+        id="NameInput"
         title="Nome"
         type="text"
         value={name}
@@ -23,7 +23,7 @@ export default function FormPage() {
         }}
       />
       <Input
-        id="age"
+        id="AgeInput"
         title="Idade"
         type="number"
         value={age}

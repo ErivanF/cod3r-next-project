@@ -2,7 +2,7 @@ const baseUrl = "http://localhost:3000/";
 describe("End to end testing", () => {
   it("should be able to create an user", () => {
     cy.visit(baseUrl);
-    cy.get("button").contains("Criar usuário").click();
+    cy.get("a").contains("Criar usuário").click();
     cy.get('[data-testid="NameInput"]').type("UserTestName");
     cy.get('[data-testid="AgeInput"]').type("24601"); //Be sure to not have a user with this age
     cy.get("button").contains("Registrar").click();
@@ -11,19 +11,20 @@ describe("End to end testing", () => {
   });
   it("should be able to modify a user", () => {
     cy.visit(baseUrl);
-    cy.get('[data-testid="userCard"]')
-      .contains("UserTestName")
-      .get('[data-testid="editUser"]')
+    cy.contains("UserTestName")
+      .parent("tr")
+      .find('[data-testid="editButton"]')
       .click();
-    cy.get('[data-testid="NameInput"]').clear().type("UserTestNameUpdated");
+    cy.get('[data-testid="NameInput"]').clear();
+    cy.get('[data-testid="NameInput"]').type("UserTestNameUpdated");
     cy.get("button").contains("Atualizar").click();
     cy.contains("UserTestNameUpdated").should("exist");
   });
   it("should be able to delete a user", () => {
     cy.visit(baseUrl);
-    cy.get('[data-testid="userCard"]')
-      .contains("UserTestNameUpdated")
-      .get('[data-testid="deleteUser"]')
+    cy.contains("UserTestNameUpdated")
+      .parent("tr")
+      .find('[data-testid="deleteButton"]')
       .click();
     cy.contains("UserTestNameUpdated").should("not.exist");
   });
