@@ -3,11 +3,13 @@ import Button from "@/components/Button";
 import Input from "@/components/Input";
 import User from "@/Core/UserModel";
 import UserCollection from "@/db/UserCollection";
+import { useRouter } from "next/navigation";
 import { useState } from "react";
 
 export default function FormPage() {
   const [name, setName] = useState("");
   const [age, setAge] = useState("");
+  const router = useRouter();
   const repo = new UserCollection();
   return (
     <div className="flex flex-col items-center">
@@ -33,7 +35,9 @@ export default function FormPage() {
         testId="register"
         handleClick={() => {
           const user = new User(name, parseInt(age));
-          repo.save(user);
+          repo.save(user).then(() => {
+            router.push("/");
+          });
         }}
       >
         Registrar
