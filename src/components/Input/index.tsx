@@ -13,7 +13,7 @@ export default function Input({
   handleChange,
 }: props) {
   return (
-    <div className="p-1 flex flex-col max-w-md h-11">
+    <div className="p-1 flex flex-col max-w-md m-2">
       <div className="text-gray-200 text-lg m-1">{title}</div>
 
       <input

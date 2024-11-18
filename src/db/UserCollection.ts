@@ -1,6 +1,7 @@
 import User from "@/Core/UserModel";
 import UserRepository from "@/Core/UserRepository";
 import firebase from "./config";
+import "firebase/compat/firestore";
 
 export default class UserCollection implements UserRepository {
   #conversor = {
