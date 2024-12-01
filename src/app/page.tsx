@@ -3,7 +3,7 @@
 import TableHeader from "@/components/TableHeader";
 import TableLine from "@/components/TableLine";
 import User from "@/Core/UserModel";
-import UserCollection from "@/db/UserCollection";
+import UserCollection from "@/db/selector";
 import { useEffect, useState } from "react";
 const repo = new UserCollection();
 export default function Home() {

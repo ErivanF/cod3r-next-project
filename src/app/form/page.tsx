@@ -2,7 +2,7 @@
 import Button from "@/components/Button";
 import Input from "@/components/Input";
 import User from "@/Core/UserModel";
-import UserCollection from "@/db/UserCollection";
+import UserCollection from "@/db/selector";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
 

@@ -3,7 +3,7 @@
 import Button from "@/components/Button";
 import Input from "@/components/Input";
 import User from "@/Core/UserModel";
-import UserCollection from "@/db/UserCollection";
+import UserCollection from "@/db/selector";
 import { useParams, useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 const repo = new UserCollection();
