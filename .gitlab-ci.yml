@@ -2,7 +2,7 @@ image: node:latest
 stages:
   - build
   - test
-build:
+fetch-dependencies:
   stage: build
   script:
     - npm install --legacy-peer-deps
@@ -14,7 +14,7 @@ build:
     when: on_success
     paths:
       - node_modules/
-test:
+run-jest:
   stage: test
   dependencies:
     - build
@@ -22,3 +22,8 @@ test:
   script:
     - echo "Testing..."
     - npm run test:ci
+  artifacts:
+    when: always
+    reports:
+      junit:
+        - junit.xml
